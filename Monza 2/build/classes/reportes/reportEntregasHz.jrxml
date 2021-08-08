@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportEntregasHz" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f6bf74fe-f7d5-4068-a771-186c73b60960">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     entregas.`nota_entregas` AS entregas_nota_entregas,
+     entregas.`fecha_entrega` AS entregas_fecha_entrega,
+     entregas.`referencia` AS entregas_referencia,
+     clientes.`nombre` AS clientes_nombre,
+     clientes.`APaterno` AS clientes_APaterno,
+     clientes.`Amaterno` AS clientes_Amaterno,
+     clientes.`direccion` AS clientes_direccion,
+     clientes.`telefono` AS clientes_telefono
+FROM
+     `clientes` clientes INNER JOIN `entregas` entregas ON clientes.`idclientes` = entregas.`nota_entregas`]]>
+	</queryString>
+	<field name="entregas_nota_entregas" class="java.lang.String"/>
+	<field name="entregas_fecha_entrega" class="java.lang.String"/>
+	<field name="entregas_referencia" class="java.lang.String"/>
+	<field name="clientes_nombre" class="java.lang.String"/>
+	<field name="clientes_APaterno" class="java.lang.String"/>
+	<field name="clientes_Amaterno" class="java.lang.String"/>
+	<field name="clientes_direccion" class="java.lang.String"/>
+	<field name="clientes_telefono" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="138" height="79" uuid="e6bfc2f5-a1c7-4a5c-8bdd-051515c2b9a2"/>
+				<imageExpression><![CDATA["src\\Imagen\\MonReport.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="250" y="27" width="253" height="25" uuid="045f76c0-d708-4ee9-ba8e-4e689d3c6b19"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE ENTREGAS]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="645" y="59" width="107" height="20" uuid="00a449e6-5394-4d99-86cf-512afddd5ac4"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="380" height="20" uuid="bd1ad7e6-b3c3-4bb9-881a-02ea6388e81d"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estas son las entregas pendientes hasta el momento:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="70" height="20" uuid="22975785-3921-4854-bce8-24ca2febab55"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Nota]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="70" y="2" width="274" height="20" uuid="c5a59766-dd99-4f08-89f0-bfab71d956f4"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="164" y="21" width="100" height="20" uuid="528555d3-3780-4af2-a103-9afaaebfcfeb"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="264" y="21" width="80" height="20" uuid="b5094e6c-ad0a-47ec-8b00-a55c91ff0287"/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="344" y="2" width="106" height="20" uuid="90e4e192-0ad1-434b-8278-3a59c0eb6135"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dirección]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="4" width="110" height="20" uuid="26866b57-4db4-4869-b58f-9bc8ca8de2a3"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Referencia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="560" y="4" width="85" height="20" uuid="741bb0ec-f5ed-455f-bf47-9848f6dbb741"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Teléfono]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="645" y="4" width="107" height="20" uuid="c0256799-c20f-45c1-95f8-cd74c7d1f3c6"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Entrega]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="75" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="70" height="20" uuid="23e3b94e-e4ec-4106-88f3-d54a81ded5bf"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{entregas_nota_entregas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="70" y="0" width="94" height="20" uuid="216de1d0-c6dd-45bd-baa5-f52b17640487"/>
+				<textFieldExpression><![CDATA[$F{clientes_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="164" y="0" width="100" height="20" uuid="53364a55-0538-4f24-95ab-64ca11dbad03"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clientes_APaterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="264" y="0" width="80" height="20" uuid="2089aa4f-230e-4707-99d7-55027157bb28"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clientes_Amaterno}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="0" width="106" height="74" uuid="e83969fd-d34b-4b7c-bcb1-48d1a0761050"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{clientes_direccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="110" height="74" uuid="e4a4abb1-5247-4568-b728-da8a135de76a"/>
+				<textFieldExpression><![CDATA[$F{entregas_referencia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="560" y="0" width="85" height="20" uuid="499eb4b4-e7f5-4d52-ba7c-5ca7563947a7"/>
+				<textFieldExpression><![CDATA[$F{clientes_telefono}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="645" y="0" width="107" height="20" uuid="197c0897-895c-4a78-ae84-3003ef3d7946"/>
+				<textFieldExpression><![CDATA[$F{entregas_fecha_entrega}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="645" y="0" width="100" height="20" uuid="8ee0d1d6-c6ba-4bc9-a6b0-e5ed69c46c0b"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="9" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reportbitacora" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="66f241a1-e2f7-4c94-b391-249e74c3aecf">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     bitacora.`cantidad` AS bitacora_cantidad,
+     bitacora.`movimiento` AS bitacora_movimiento,
+     bitacora.`nota_bitacora` AS bitacora_nota_bitacora,
+     usuario.`idcuenta` AS usuario_idcuenta,
+     usuario.`nombre` AS usuario_nombre
+FROM
+     `usuario` usuario INNER JOIN `bitacora` bitacora ON usuario.`idcuenta` = bitacora.`cuneta_usuario`]]>
+	</queryString>
+	<field name="bitacora_cantidad" class="java.lang.Double"/>
+	<field name="bitacora_movimiento" class="java.lang.String"/>
+	<field name="bitacora_nota_bitacora" class="java.lang.String"/>
+	<field name="usuario_idcuenta" class="java.lang.String"/>
+	<field name="usuario_nombre" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="119" height="79" uuid="d34a719c-4953-4c25-8ecc-bd5e096b7860"/>
+				<imageExpression><![CDATA["src\\Imagen\\MonReport.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="204" y="27" width="164" height="25" uuid="3b44d85e-428c-418d-93ca-9df53fe7b318"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Bitacora  del Dia]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="473" y="59" width="99" height="20" uuid="c8434e0e-6c44-426b-8d36-fb20ed7456b0"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="34" uuid="e319140b-bace-40dc-96e0-27fc92667078"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Clave Administrador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="104" y="0" width="100" height="36" uuid="7ca17f1f-1b4c-4619-9688-b50db62a209d"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre del Administrador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="217" y="2" width="100" height="34" uuid="0216ec4d-9b30-48a3-8876-6571a7f2d6f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo de Accion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="330" y="2" width="100" height="34" uuid="55e6e253-61ce-4394-84f2-4c2e3ab2096e"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Nota Relacionada]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="445" y="2" width="100" height="34" uuid="fb399e8f-91d4-40d0-b37c-4288e0543b71"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad Recibida]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="2f08f4b3-ef3b-459f-95c0-e6f38f15dbbb"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_idcuenta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="104" y="0" width="100" height="20" uuid="3bd25454-8da6-4bd7-beea-40e0e117826c"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{usuario_nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="0" width="100" height="20" uuid="cb336f52-3d45-4907-b8d2-8096b603689f"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bitacora_movimiento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="330" y="0" width="100" height="20" uuid="945f8aa4-8038-4a97-b30f-025bdedd0870"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bitacora_nota_bitacora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="445" y="0" width="100" height="20" uuid="ecb6aa31-00ce-4027-aa75-092613ae305d"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{bitacora_cantidad}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="4" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="472" y="0" width="100" height="20" uuid="f4bc58b7-e907-4e9f-936d-26479a7ba15c"/>
+				<textElement>
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="2" splitType="Stretch"/>
+	</summary>
+</jasperReport>

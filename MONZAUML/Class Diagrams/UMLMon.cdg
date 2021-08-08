@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="UMLMon">
+  <ClassDiagramComponents>
+    <Class name="Usuario" package="" visibility="public" xPosition="35.0" yPosition="13.0">
+      <Fields>
+        <Field name="nombreusu" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="respuesta" type="String" visibility="private"/>
+        <Field name="pregunta" type="int" visibility="private"/>
+        <Field name="tipo" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="clientes" package="" visibility="public" xPosition="693.0" yPosition="513.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="idcliente" type="String" visibility="private"/>
+        <Field name="telefono" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Prodcutos" package="" visibility="public" isAbstract="true" xPosition="693.0" yPosition="-8.0">
+      <Fields>
+        <Field name="modeloPro" type="String" visibility="private"/>
+        <Field name="nombrePro" type="String" visibility="private"/>
+        <Field name="precio" type="Double" visibility="private"/>
+        <Field name="provedMarca" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="orders" package="" visibility="public" xPosition="303.0" yPosition="494.0">
+      <Fields>
+        <Field name="referencia" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="fech" type="String" visibility="private"/>
+        <Field name="hora" type="String" visibility="private"/>
+        <Field name="cant" type="int" visibility="private"/>
+        <Field name="nota" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Provedores" package="" visibility="public" xPosition="303.0" yPosition="13.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="correo" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="tipoMer" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="notas" package="" visibility="public" xPosition="693.0" yPosition="301.0">
+      <Fields>
+        <Field name="total" type="double" visibility="private"/>
+        <Field name="abono" type="double" visibility="private"/>
+        <Field name="entrega" type="int" visibility="private"/>
+        <Field name="no_nota" type="String" visibility="private"/>
+        <Field name="poductos" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="bitacoraA" package="" visibility="public" xPosition="959.0" yPosition="513.0">
+      <Fields>
+        <Field name="fecha" type="String" visibility="private"/>
+        <Field name="did" type="String" visibility="private"/>
+        <Field name="cantiadad" type="String" visibility="private"/>
+        <Field name="notaB" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="info_productos" package="" visibility="public" xPosition="980.0" yPosition="142.0">
+      <Fields>
+        <Field name="existencia" type="int" visibility="private"/>
+        <Field name="categoria" type="String" visibility="private"/>
+        <Field name="bandera" type="int" visibility="private"/>
+        <Field name="imagen" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="orders" target="clientes"/>
+    <IsRelation name="is" source="clientes" target="notas"/>
+    <IsRelation name="is" source="notas" target="info_productos"/>
+    <IsRelation name="is" source="bitacoraA" target="notas"/>
+    <IsRelation name="is" source="info_productos" target="Prodcutos"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
